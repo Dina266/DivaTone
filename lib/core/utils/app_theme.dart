@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tidal/core/utils/app_colors.dart';
+import 'package:diva_tone/core/utils/app_colors.dart';
 
 class AppTheme {
   static final lightTheme = ThemeData(

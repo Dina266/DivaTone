@@ -1,6 +1,6 @@
 {
-    "name": "tidal",
-    "short_name": "tidal",
+    "name": "diva_tone",
+    "short_name": "diva_tone",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
