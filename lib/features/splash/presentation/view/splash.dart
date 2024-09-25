@@ -1,8 +1,21 @@
+import 'package:diva_tone/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/routes/routing.dart';
 
-class SplashPage extends StatelessWidget {
-  const SplashPage({super.key});
+class SplashView extends StatefulWidget {
+  const SplashView({super.key});
+
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
+  @override
+  void initState() {
+    super.initState();
+    redirect();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +25,27 @@ class SplashPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset('assets/images/appicon.jpeg', width: 120 , height : 120)),
-            Text('DivaTone')
+                borderRadius: BorderRadius.circular(120),
+                child: Image.asset('assets/images/appicon.jpeg',
+                    width: 120, height: 120)),
+            const SizedBox(
+              width: 4,
+            ),
+            Text(
+              'DivaTone',
+              style: TextStyle(
+                  color: AppColors.primary,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+            )
           ],
         ),
       ),
     );
+  }
+
+  Future<void> redirect() async {
+    await Future.delayed(const Duration(seconds: 2));
+    Navigator.pushReplacementNamed(context, Routing.getStarted);
   }
 }
