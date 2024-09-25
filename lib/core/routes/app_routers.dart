@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../features/onboarding/presentation/view/choose_mode_view.dart';
+import '../../features/onboarding/presentation/view/onboarding_view.dart';
+import '../../features/onboarding/presentation/view/signin_r_signup_view.dart';
 import '../../features/splash/presentation/view/splash.dart';
 import '../routes/routing.dart';
 
@@ -8,7 +11,11 @@ class AppRouters {
       case Routing.init:
         return MaterialPageRoute(builder: (_) => const SplashView());
       case Routing.getStarted:
-        return MaterialPageRoute(builder: (_) => const Scaffold(body:Center(child: Text("Get Started"))));
+        return MaterialPageRoute(builder: (_) => const OnBoardingView());
+      case Routing.changeMood:
+        return MaterialPageRoute(builder: (_) => const ChooseModeView());
+      case Routing.signinOrSignupView:
+        return MaterialPageRoute(builder: (_) => const SigninOrSignupView());
 
       
       default:

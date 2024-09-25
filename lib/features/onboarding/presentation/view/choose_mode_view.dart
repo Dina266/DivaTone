@@ -1,13 +1,12 @@
+import 'package:diva_tone/core/routes/routing.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/components/widgets/custom_button.dart';
-import '../../../../core/routes/routing.dart';
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
 import 'widgets/custom_logo.dart';
+import 'widgets/item_change_mode.dart';
 
-class OnBoardingView extends StatelessWidget {
-  const OnBoardingView({super.key});
+class ChooseModeView extends StatelessWidget {
+  const ChooseModeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class OnBoardingView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 40),
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      fit: BoxFit.fill, image: AssetImage(AppImages.introBG))),
+                      fit: BoxFit.fill, image: AssetImage(AppImages.changeMoodBG))),
               ),
           Container(color: Colors.black.withOpacity(0.15)),
           Padding(
@@ -28,25 +27,18 @@ class OnBoardingView extends StatelessWidget {
                   const CustomLogo(),
                   const Spacer(),
                   const Text(
-                    "Enjoy Listening To Music",
+                    "Choose Mode",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                         color: Colors.white),
                   ),
-                  const SizedBox(height: 21),
-                  Text(
-                    "Explore new sounds, rediscover your favorites, and create playlists that match every mood and moment.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14,
-                        color: AppColors.grey),
-                  ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 40),
+                  const ItemChangeMode(),
+                  const SizedBox(height: 60),
                   CustomElevatedButton(onPressed: () {
-                    Navigator.pushNamed(context, Routing.changeMood);
-                  }, title: "Get Started")
+                    Navigator.pushNamed(context, Routing.signinOrSignupView);
+                  }, title: "Continue")
                 ]),
           )
         ],
@@ -54,3 +46,5 @@ class OnBoardingView extends StatelessWidget {
     );
   }
 }
+
+

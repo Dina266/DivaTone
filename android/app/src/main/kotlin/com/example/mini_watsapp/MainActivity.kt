@@ -1,4 +1,4 @@
-package com.example.diva_tone
+package com.example.mini_watsapp
 
 import io.flutter.embedding.android.FlutterActivity
 
