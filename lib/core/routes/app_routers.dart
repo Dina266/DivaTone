@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import '../../features/splash/presentation/view/splash.dart';
 import '../routes/routing.dart';
 
 class AppRouters {
   static Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routing.init:
-        return MaterialPageRoute(builder: (_) => const Scaffold());
+        return MaterialPageRoute(builder: (_) => const SplashPage());
 
       
       default:

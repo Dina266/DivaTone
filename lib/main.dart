@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'core/routes/app_routers.dart';
+import 'core/routes/routing.dart';
 import 'core/utils/app_theme.dart';
 
 void main() {
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tidal',
       theme: AppTheme.lightTheme,
-      home: Container()
+      initialRoute: Routing.init,
+      onGenerateRoute: AppRouters.generateRoute,
     );
   }
 }
