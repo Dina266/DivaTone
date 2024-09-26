@@ -1,3 +1,5 @@
+import 'package:diva_tone/core/components/widgets/custom_app_bar.dart';
+import 'package:diva_tone/core/helpers/is_dark_mode.dart';
 import 'package:diva_tone/features/splash/presentation/view/widgets/custom_splash_logo.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +15,7 @@ class SigninOrSignupView extends StatelessWidget {
       child : Scaffold(
         body: Stack (
           children: [
+            CustomAppBar(),
             Align(
               alignment: Alignment.topRight,
               child: Image.asset(AppImages.topUnion)
@@ -51,10 +54,11 @@ class SigninOrSignupView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children:[
                         SizedBox(
-                          height: 75,
+                          height: 70,
                           width: 180 ,
                           child: CustomElevatedButton(onPressed: (){},title: "Register",height: 20)),
                         TextButton(onPressed: (){}, child: Text("Sign in" , style: TextStyle(
+                          color: context.isDarkMode? Colors.white: Colors.black,
                           fontSize: 17,
                           fontWeight: FontWeight.bold
                         )))
