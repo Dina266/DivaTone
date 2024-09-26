@@ -1,4 +1,6 @@
 import 'package:diva_tone/features/onboarding/data/theme_cubit/theme_cubit.dart';
+import 'package:diva_tone/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +10,7 @@ import 'core/routes/app_routers.dart';
 import 'core/routes/routing.dart';
 import 'core/utils/app_theme.dart';
 
+// 3:12:19
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
@@ -15,6 +18,11 @@ void main() async {
         ? HydratedStorage.webStorageDirectory
         : await getApplicationDocumentsDirectory(),
   );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
+// setUpGetIt();
+//   getIt<CacheHelper>().init();
   runApp(const MyApp());
 }
 

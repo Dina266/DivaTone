@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../features/auth/presentation/view_model/auth_cubit.dart';
 import '../../features/auth/presentation/views/sign_in_view.dart';
 import '../../features/auth/presentation/views/signup_view.dart';
 import '../../features/onboarding/presentation/view/choose_mode_view.dart';
@@ -19,11 +21,18 @@ class AppRouters {
       case Routing.signInOrSignUpView:
         return MaterialPageRoute(builder: (_) => const SignInOrSignUpView());
       case Routing.signUpView:
-        return MaterialPageRoute(builder: (_) => const SignUpView());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => AuthCubit(),
+                  child: const SignUpView(),
+                ));
       case Routing.signInView:
-        return MaterialPageRoute(builder: (_) => const SignInView());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => AuthCubit(),
+                  child: const SignInView(),
+                ));
 
-      
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
@@ -35,4 +44,3 @@ class AppRouters {
     }
   }
 }
-
