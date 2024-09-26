@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import '../../features/auth/presentation/views/sign_in_view.dart';
+import '../../features/auth/presentation/views/signup_view.dart';
 import '../../features/onboarding/presentation/view/choose_mode_view.dart';
 import '../../features/onboarding/presentation/view/onboarding_view.dart';
-import '../../features/onboarding/presentation/view/signin_r_signup_view.dart';
+import '../../features/onboarding/presentation/view/signin_or_signup_view.dart';
 import '../../features/splash/presentation/view/splash.dart';
 import '../routes/routing.dart';
 
@@ -14,8 +16,12 @@ class AppRouters {
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
       case Routing.changeMood:
         return MaterialPageRoute(builder: (_) => const ChooseModeView());
-      case Routing.signinOrSignupView:
-        return MaterialPageRoute(builder: (_) => const SigninOrSignupView());
+      case Routing.signInOrSignUpView:
+        return MaterialPageRoute(builder: (_) => const SignInOrSignUpView());
+      case Routing.signUpView:
+        return MaterialPageRoute(builder: (_) => const SignUpView());
+      case Routing.signInView:
+        return MaterialPageRoute(builder: (_) => const SignInView());
 
       
       default:

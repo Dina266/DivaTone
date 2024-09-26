@@ -1,14 +1,18 @@
 import 'package:diva_tone/core/helpers/is_dark_mode.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBar({super.key, this.title});
+  final Widget? title;
+
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const  EdgeInsets.all(20),
+      padding: const  EdgeInsets.all(10),
       child: AppBar(
+        centerTitle: true,
+        title: title != null? title! :const Text(''),
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading:IconButton(
@@ -35,4 +39,7 @@ class CustomAppBar extends StatelessWidget {
       ),
     );
   }
+  
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight+10);
 }

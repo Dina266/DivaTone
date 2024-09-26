@@ -37,7 +37,7 @@ class ChooseModeView extends StatelessWidget {
                   const ItemChangeMode(),
                   const SizedBox(height: 60),
                   CustomElevatedButton(onPressed: () {
-                    Navigator.pushNamed(context, Routing.signinOrSignupView);
+                    Navigator.pushNamed(context, Routing.signInOrSignUpView);
                   }, title: "Continue")
                 ]),
           )

@@ -6,4 +6,6 @@ class AppImages {
   static const String signinOrSignup = 'assets/images/signin_signup_image.png';
   static const String bottomUnion = 'assets/images/union_bottom.png';
   static const String topUnion = 'assets/images/union_top.png';
+  static const String google = 'assets/images/googleIcon.jpeg';
+  static const String facebook = 'assets/images/facebookIcon.png';
 }

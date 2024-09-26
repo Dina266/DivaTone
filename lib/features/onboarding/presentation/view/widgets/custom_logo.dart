@@ -9,8 +9,7 @@ class CustomLogo extends StatelessWidget {
     return Align(
       alignment: Alignment.topCenter,
       child: Container(
-          width: 140,
-          height: 140,
+          width: 150,
           alignment: Alignment.topCenter,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
