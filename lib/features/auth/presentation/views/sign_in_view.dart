@@ -73,6 +73,7 @@ class _SignInViewState extends State<SignInView> {
                           formkey.currentState!.save();
                           BlocProvider.of<AuthCubit>(context).loginWithEmailAndPassword(email: email, password: password);
                           log("logged in ");
+                          Navigator.pushNamed(context, Routing.homeView);
                         } else {
                           autovalidateMode = AutovalidateMode.always;
                         }

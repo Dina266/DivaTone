@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 part 'auth_state.dart';
@@ -43,7 +44,11 @@ class AuthCubit extends Cubit<AuthState> {
         email: email,
         password: password,
       );
-      
+
+      FirebaseFirestore.instance.collection('Users').add({
+          'name':userCredential.user?.displayName,
+          'email':userCredential.user?.email
+      });
       // Optionally, update the user's display name
       await userCredential.user?.updateDisplayName(name);
 

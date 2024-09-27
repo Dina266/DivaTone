@@ -1,3 +1,4 @@
+import 'package:diva_tone/features/home/presentation/views/homa_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/auth/presentation/view_model/auth_cubit.dart';
@@ -20,6 +21,8 @@ class AppRouters {
         return MaterialPageRoute(builder: (_) => const ChooseModeView());
       case Routing.signInOrSignUpView:
         return MaterialPageRoute(builder: (_) => const SignInOrSignUpView());
+      case Routing.homeView:
+        return MaterialPageRoute(builder: (_) => const HomeView());
       case Routing.signUpView:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 
-class CustomLogo extends StatelessWidget {
+class CustomLogo extends StatelessWidget implements PreferredSizeWidget {
   const CustomLogo({super.key});
 
   @override
@@ -32,4 +32,7 @@ class CustomLogo extends StatelessWidget {
           )),
     );
   }
+  
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight+10);
 }

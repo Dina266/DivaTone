@@ -80,7 +80,7 @@ class _SignUpViewState extends State<SignUpView> {
                       if (formkey.currentState!.validate()) {
                         formkey.currentState!.save();
                         BlocProvider.of<AuthCubit>(context).createUserWithEmailAndPassword(email: email, password: password, name: userName);
-                        Navigator.pushNamed(context, Routing.signInView);
+                        Navigator.pushNamed(context, Routing.homeView);
                       } else {
                         setState(() {
                           autovalidateMode = AutovalidateMode.always;

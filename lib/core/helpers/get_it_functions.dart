@@ -14,22 +14,21 @@
 // final getIt = GetIt.asNewInstance();
 
 // void setUpGetIt() {
-//   getIt.registerSingleton<FirebaseAuthService>(
-//     FirebaseAuthService(),
-//   );
-//   getIt.registerSingleton<DatabaseService>(
-//     FirebaseStoreService(),
-//   );
-//   getIt.registerSingleton<AuthRepo>(
-//     AuthRepoImpl(
-//       firebaseAuthService: getIt.get<FirebaseAuthService>(),
-//       databaseService: getIt.get<DatabaseService>(),
-//     ),
-//   );
+//   // getIt.registerSingleton<FirebaseAuthService>(
+//   //   FirebaseAuthService(),
+//   // );
+//   // getIt.registerSingleton<DatabaseService>(
+//   //   FirebaseStoreService(),
+//   // );
+//   // getIt.registerSingleton<AuthRepo>(
+//   //   AuthRepoImpl(
+//   //     firebaseAuthService: getIt.get<FirebaseAuthService>(),
+//   //     databaseService: getIt.get<DatabaseService>(),
+//   //   ),
+//   // );
+//   // getIt.registerLazySingleton(() => CacheHelper());
 
-//   getIt.registerLazySingleton(() => CacheHelper());
+//   // getIt.registerLazySingleton(() => Dio());
 
-//   getIt.registerLazySingleton(() => Dio());
-
-//   getIt.registerLazySingleton(() => Logger());
+//   // getIt.registerLazySingleton(() => Logger());
 // }

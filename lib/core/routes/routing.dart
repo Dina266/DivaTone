@@ -5,5 +5,6 @@ class Routing {
   static const String signInOrSignUpView = 'signInOrSignUpView';
   static const String signUpView = 'signUpView';
   static const String signInView = 'signInView';
+  static const String homeView = 'HomeView';
 
 }

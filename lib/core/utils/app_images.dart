@@ -8,4 +8,6 @@ class AppImages {
   static const String topUnion = 'assets/images/union_top.png';
   static const String google = 'assets/images/googleIcon.jpeg';
   static const String facebook = 'assets/images/facebookIcon.png';
+  static const String frame1 = 'assets/images/frame1.png';
+  static const String frame2 = 'assets/images/frame2.png';
 }
