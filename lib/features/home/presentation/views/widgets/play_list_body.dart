@@ -13,7 +13,7 @@ class PlayListBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SongsCubit,SongsState>(
       builder: (context , state) {
-        if(state is SongsPlayListLoading) {
+        if(state is SongsNewsLoading) {
           return const Center(child: CircularProgressIndicator());
         }
         if(state is SongsPlayListSuccess) {

@@ -1,10 +1,12 @@
 import 'package:diva_tone/core/helpers/is_dark_mode.dart';
+import 'package:diva_tone/core/routes/routing.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key, this.title, this.actions});
+  const CustomAppBar({super.key, this.title, this.actions, this.isHome});
   final Widget? title;
   final List<Widget>? actions;
+  final bool? isHome;
 
 
   @override
@@ -19,6 +21,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         actions: actions,
         leading:IconButton(
             onPressed: (){
+              isHome !=null? Navigator.pushReplacementNamed(context, Routing.homeView):
               Navigator.pop(context);
             }, icon: 
             Container(

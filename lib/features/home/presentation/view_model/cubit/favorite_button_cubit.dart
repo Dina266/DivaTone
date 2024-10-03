@@ -1,29 +1,26 @@
-// import 'dart:developer';
 import 'package:bloc/bloc.dart';
-import 'package:diva_tone/features/home/presentation/view_model/cubit_news_songs/songs_cubit.dart';
 import 'package:meta/meta.dart';
-
+import '../cubit_news_songs/songs_cubit.dart';
 part 'favorite_button_state.dart';
+
 
 class FavoriteButtonCubit extends Cubit<FavoriteButtonState> {
   FavoriteButtonCubit() : super(FavoriteButtonInitial());
 
-  void favouriteButtonUpdated({required String 
-  songId}) async{
+  void checkIfFavorite({required String songId}) async {
+    final result = await SongsCubit().isFavoriteSong(songId: songId);
+    emit(FavoriteButtonUpdated(isFavorite: result));
+  }
 
+  void toggleFavoriteStatus({required String songId}) async {
+    if (state is FavoriteButtonUpdated) {
+      final currentState = state as FavoriteButtonUpdated;
 
-    var result = await SongsCubit().addOrRemoveFavoriteSong(songId: songId);
+      final newFavoriteStatus = !currentState.isFavorite;
+      emit(FavoriteButtonUpdated(isFavorite: newFavoriteStatus));
 
-    result.fold(
-      (l){
-
-      },
-      (isFavorite){
-        // log("message: $isFavorite");
-        emit(
-          FavoriteButtonUpdated(isFavorite: isFavorite)
-          );
-      }
-    );
+      await SongsCubit().addOrRemoveFavoriteSong(songId: songId);
+      
+    }
   }
 }

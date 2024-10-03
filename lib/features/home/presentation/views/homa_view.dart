@@ -59,7 +59,7 @@ class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin
                   Container(),
                 ]),
               ),
-              PlayList()
+              const PlayList()
           ],
         ),
       ),

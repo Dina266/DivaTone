@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/components/widgets/favorite_button.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../song_player/presentation/views/song_player.dart';
+import '../../../../song_player/presentation/views/song_player_view.dart';
 import '../../../domain/entities/song.dart';
 
 class CustomPlayListItem extends StatelessWidget {

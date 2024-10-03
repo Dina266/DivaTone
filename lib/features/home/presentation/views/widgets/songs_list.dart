@@ -3,7 +3,7 @@ import 'package:diva_tone/core/helpers/is_dark_mode.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/components/constatnts/app_url.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../song_player/presentation/views/song_player.dart';
+import '../../../../song_player/presentation/views/song_player_view.dart';
 import '../../../domain/entities/song.dart';
 
 class SongsList extends StatelessWidget {

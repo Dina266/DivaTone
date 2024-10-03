@@ -1,4 +1,4 @@
-import 'dart:developer';
+// import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
@@ -26,7 +26,7 @@ try {
 
       for (var song in data.docs) {
         var songModel = SongModel.fromJson(song.data());
-        log("reference id : ${song.reference.id}");
+        // log("reference id : ${song.reference.id}");
         bool isFavorite = await isFavoriteSong(songId: song.reference.id);
         songModel.isFavorite = isFavorite;
         songModel.songId = song.reference.id;
@@ -43,7 +43,7 @@ try {
 
 
   Future getPlayList () async {
-    emit(SongsPlayListLoading());
+    emit(SongsNewsLoading());
 try {
       List<SongEntity> songs = [];
       var data = await FirebaseFirestore.instance
@@ -137,7 +137,7 @@ try {
         .get();
 
     // If the query returns no documents, the song is not a favorite
-    if (favoriteSongs.docs.isNotEmpty) {
+    if (favoriteSongs.docs.isEmpty) {
       return false; // Song is NOT a favorite
     } else {
       return true;  // Song IS a favorite
