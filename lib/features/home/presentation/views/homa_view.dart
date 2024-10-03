@@ -1,10 +1,8 @@
-import 'package:diva_tone/core/helpers/is_dark_mode.dart';
 import 'package:diva_tone/core/utils/app_images.dart';
 import 'package:diva_tone/features/home/presentation/views/widgets/news_songs.dart';
 import 'package:diva_tone/features/onboarding/presentation/view/widgets/custom_logo.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/utils/app_colors.dart';
+import 'widgets/custom_tab_bar.dart';
 import 'widgets/play_list.dart';
 
 class HomeView extends StatefulWidget {
@@ -25,11 +23,11 @@ class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          appBar: CustomLogo(),
+          appBar: const CustomLogo(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: 170,
               child: Stack(children: [
                 Align(
@@ -67,32 +65,3 @@ class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin
   }
 }
 
-
-class CustomTabBar extends StatelessWidget {
-  const CustomTabBar({super.key, required this.tabController});
-  final TabController tabController;
-
-  @override
-  Widget build(BuildContext context) {
-    return TabBar(
-      controller: tabController,
-      labelColor: context.isDarkMode? Colors.white : Colors.black ,
-      indicatorColor: AppColors.primary,
-      dividerHeight: 0,
-      isScrollable: true,
-      tabs: const [
-      Text('News',
-      style: TextStyle(fontWeight: FontWeight.w500,
-      fontSize: 20),),
-      Text('Videos',
-      style: TextStyle(fontWeight: FontWeight.w500,
-      fontSize: 20)),
-      Text('Artists',
-      style: TextStyle(fontWeight: FontWeight.w500,
-      fontSize: 20)),
-      Text('Podcasts',
-      style: TextStyle(fontWeight: FontWeight.w500,
-      fontSize: 20)),
-    ]);
-  }
-}

@@ -16,7 +16,7 @@ class NewsSongsBody extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         if(state is SongsNewsSuccess) {
-          log('${state.songs.length}');
+          // log('${state.songs.length}');
           return SongsList(songs :state.songs);
 
         }
