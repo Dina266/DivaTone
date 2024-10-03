@@ -2,6 +2,7 @@
 import 'package:diva_tone/core/helpers/is_dark_mode.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/components/widgets/favorite_button.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../song_player/presentation/views/song_player.dart';
 import '../../../domain/entities/song.dart';
@@ -73,9 +74,7 @@ class CustomPlayListItem extends StatelessWidget {
               fontSize: 14
             ),),
             const SizedBox(width: 24,),
-            IconButton(
-              onPressed: (){},
-              icon: const Icon(Icons.favorite_border_rounded , color: Colors.grey,size: 26,))
+            FavoriteButton(songEntity: songs[index],)
           ],
         ),
       ),

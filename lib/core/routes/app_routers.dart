@@ -1,5 +1,4 @@
 import 'package:diva_tone/features/home/presentation/views/homa_view.dart';
-import 'package:diva_tone/features/song_player/presentation/views/song_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/auth/presentation/view_model/auth_cubit.dart';

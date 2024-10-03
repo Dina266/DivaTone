@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:diva_tone/core/components/widgets/custom_app_bar.dart';
+import 'package:diva_tone/core/components/widgets/favorite_button.dart';
 import 'package:diva_tone/core/helpers/is_dark_mode.dart';
 import 'package:diva_tone/features/home/domain/entities/song.dart';
 import 'package:diva_tone/features/song_player/presentation/view_model/cubit/song_player_cubit.dart';
@@ -100,13 +101,7 @@ class SongPlayerViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.favorite_border_rounded,
-                      color: Colors.grey,
-                      size: 35,
-                    ))
+                FavoriteButton(songEntity: songs)
               ],
             ),
           ),

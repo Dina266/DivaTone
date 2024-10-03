@@ -12,10 +12,10 @@ class NewsSongsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SongsCubit,SongsState>(
       builder: (context , state) {
-        if(state is SongsLoading) {
+        if(state is SongsNewsLoading) {
           return const Center(child: CircularProgressIndicator());
         }
-        if(state is SongsSuccess) {
+        if(state is SongsNewsSuccess) {
           log('${state.songs.length}');
           return SongsList(songs :state.songs);
 

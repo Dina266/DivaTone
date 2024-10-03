@@ -45,14 +45,17 @@ class AuthCubit extends Cubit<AuthState> {
         password: password,
       );
 
-      FirebaseFirestore.instance.collection('Users').add({
-          'name':userCredential.user?.displayName,
+      FirebaseFirestore.instance.collection('Users').doc(userCredential.user?.uid)
+      .set({
+          'name':name,
           'email':userCredential.user?.email
       });
       // Optionally, update the user's display name
       await userCredential.user?.updateDisplayName(name);
+      
 
       log("User created: ${userCredential.user?.email}");
+      log("User created: $name");
       emit(AuthSuccess(user: userCredential.user));
     } on FirebaseAuthException catch (e) {
       log("Error signing up: ${e.message}");

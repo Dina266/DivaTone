@@ -1,4 +1,4 @@
-import 'package:diva_tone/features/home/presentation/view_model/cubit_play_list/play_list_cubit.dart';
+import 'package:diva_tone/features/home/presentation/view_model/cubit_news_songs/songs_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'play_list_body.dart';
@@ -9,7 +9,7 @@ class PlayList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_)=> PlayListCubit()..getPlayList(),
+      create: (_)=> SongsCubit()..getPlayList(),
       child:const  Padding(
         padding: EdgeInsets.all(20.0),
         child: PlayListBody(),
