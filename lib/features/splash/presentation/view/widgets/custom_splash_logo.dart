@@ -14,7 +14,7 @@ class AppLogo extends StatelessWidget {
             ClipRRect(
                 borderRadius: BorderRadius.circular(120),
                 child: Image.asset('assets/images/appicon.jpeg',
-                    width: 120, height: 120)),
+                    width: 100, height: 100)),
             const SizedBox(
               width: 4,
             ),

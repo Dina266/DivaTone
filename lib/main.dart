@@ -10,7 +10,7 @@ import 'core/routes/app_routers.dart';
 import 'core/routes/routing.dart';
 import 'core/utils/app_theme.dart';
 
-// 3:12:19
+// 5:00:00
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(

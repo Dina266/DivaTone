@@ -1,4 +1,5 @@
 import 'package:diva_tone/features/home/presentation/views/homa_view.dart';
+import 'package:diva_tone/features/song_player/presentation/views/song_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/auth/presentation/view_model/auth_cubit.dart';
@@ -23,6 +24,8 @@ class AppRouters {
         return MaterialPageRoute(builder: (_) => const SignInOrSignUpView());
       case Routing.homeView:
         return MaterialPageRoute(builder: (_) => const HomeView());
+      // case Routing.songPlayer:
+      //   return MaterialPageRoute(builder: (_) => const SongPlayerView());
       case Routing.signUpView:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(

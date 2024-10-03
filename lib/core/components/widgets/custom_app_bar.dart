@@ -2,8 +2,9 @@ import 'package:diva_tone/core/helpers/is_dark_mode.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key, this.title});
+  const CustomAppBar({super.key, this.title, this.actions});
   final Widget? title;
+  final List<Widget>? actions;
 
 
   @override
@@ -15,6 +16,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         title: title != null? title! :const Text(''),
         elevation: 0,
         backgroundColor: Colors.transparent,
+        actions: actions,
         leading:IconButton(
             onPressed: (){
               Navigator.pop(context);

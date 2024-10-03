@@ -53,7 +53,7 @@ class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin
                 child: TabBarView(
                   controller: tabController,
                   children: [
-                  NewsSongs(),
+                  const NewsSongs(),
                   Container(),
                   Container(),
                   Container(),
