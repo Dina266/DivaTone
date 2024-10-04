@@ -43,7 +43,7 @@ try {
 
 
   Future getPlayList () async {
-    emit(SongsNewsLoading());
+    emit(SongsPlayListLoading());
 try {
       List<SongEntity> songs = [];
       var data = await FirebaseFirestore.instance

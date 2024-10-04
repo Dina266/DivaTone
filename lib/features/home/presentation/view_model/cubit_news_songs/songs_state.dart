@@ -4,7 +4,7 @@ part of 'songs_cubit.dart';
 sealed class SongsState {}
 
 final class SongsInitial extends SongsState {}
-// final class SongsPlayListLoading extends SongsState {}
+final class SongsPlayListLoading extends SongsState {}
 final class SongsNewsLoading extends SongsState {}
 final class SongsNewsSuccess extends SongsState {
   final List<SongEntity> songs;

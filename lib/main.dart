@@ -10,7 +10,7 @@ import 'core/routes/app_routers.dart';
 import 'core/routes/routing.dart';
 import 'core/utils/app_theme.dart';
 
-// 5:00:00
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: mode,
-            initialRoute: Routing.homeView,
+            initialRoute: Routing.init,
             onGenerateRoute: AppRouters.generateRoute,
           )
         

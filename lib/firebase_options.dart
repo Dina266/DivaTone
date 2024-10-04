@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '861718286373',
     projectId: 'flutter-app-72f03',
     storageBucket: 'flutter-app-72f03.appspot.com',
-    iosBundleId: 'com.example.miniWatsapp',
+    iosBundleId: 'com.example.divaTone',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -72,7 +72,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '861718286373',
     projectId: 'flutter-app-72f03',
     storageBucket: 'flutter-app-72f03.appspot.com',
-    iosBundleId: 'com.example.miniWatsapp',
+    iosBundleId: 'com.example.divaTone',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
