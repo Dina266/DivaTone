@@ -1,4 +1,4 @@
-// import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
@@ -6,9 +6,7 @@ import 'package:diva_tone/features/home/domain/entities/song.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-
 import '../../../data/models/song.dart';
-
 part 'songs_state.dart';
 
 class SongsCubit extends Cubit<SongsState> {
@@ -46,6 +44,8 @@ try {
     emit(SongsPlayListLoading());
 try {
       List<SongEntity> songs = [];
+      List<SongEntity> favSongs =[] ;
+
       var data = await FirebaseFirestore.instance
           .collection('Songs')
           .orderBy('releaseDate', descending: true)
@@ -56,12 +56,14 @@ try {
       for (var song in data.docs) {
         var songModel = SongModel.fromJson(song.data());
         bool isFavorite = await isFavoriteSong(songId: song.reference.id);
-        // log("favorite ? : $isFavorite");
         songModel.isFavorite = isFavorite;
         songModel.songId = song.reference.id;
+        if(songModel.isFavorite != false) {
+        favSongs.add(songModel.toEntity());
+        }
         songs.add(songModel.toEntity());
       }
-      emit(SongsPlayListSuccess(songs: songs));
+      emit(SongsPlayListSuccess(songs: songs , favSongs));
 
       return Right(songs);
     } catch (e) {
@@ -110,6 +112,8 @@ try {
       isFavorite = true; // Song was added to favorites
     }
 
+    
+
     return Right(isFavorite);
   } catch (e) {
     return Left('An error occurred: $e');
@@ -148,7 +152,4 @@ try {
     return false;
   }
 }
-
-
-
 }

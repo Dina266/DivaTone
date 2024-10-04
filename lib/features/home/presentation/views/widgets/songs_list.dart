@@ -59,7 +59,7 @@ final List<SongEntity> songs;
                 songs[index].title == 'Sheel_Oyunak_Any'?'Sheel Oyunak Any':
                 songs[index].title == 'mn_mslsl_alatawlah'? 'AlAtawla' : 'Yama Lyaly',
                 style: TextStyle(
-                      color: context.isDarkMode? Colors.white: Colors.black,
+                      color: context.isDarkMode? Color(0xffE1E1E1): AppColors.darkGrey,
                   fontWeight: FontWeight.w600,
                   fontSize: 16
                 ),
@@ -68,7 +68,7 @@ final List<SongEntity> songs;
                 songs[index].artist == 'nancy_agram'?'Nancy Agram' :
                 songs[index].artist == 'sara_hytham'?'Sara Haytham': 'Hasan Shakosh',
                 style: TextStyle(
-                      color: context.isDarkMode? Colors.grey: AppColors.darkGrey,
+                      color: context.isDarkMode? Color(0xffD6D6D6): AppColors.darkGrey,
                   fontWeight: FontWeight.w400,
                   fontSize: 12
                 ),

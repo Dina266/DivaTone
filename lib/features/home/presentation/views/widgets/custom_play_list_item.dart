@@ -51,7 +51,7 @@ class CustomPlayListItem extends StatelessWidget {
                                 ? 'AlAtawla'
                                 : 'Yama Lyaly',
                     style: TextStyle(
-                      color: context.isDarkMode? Colors.white: Colors.black,
+                      color: context.isDarkMode? Color(0xffE1E1E1): Colors.black,
                       fontWeight: FontWeight.w600, fontSize: 16),
                   ),
                   Text(
@@ -61,7 +61,7 @@ class CustomPlayListItem extends StatelessWidget {
                             ? 'Sara Haytham'
                             : 'Hasan Shakosh',
                     style: TextStyle(
-                      color: context.isDarkMode? Colors.grey: AppColors.darkGrey,
+                      color: context.isDarkMode? Color(0xffD6D6D6): Colors.black,
                       fontWeight: FontWeight.w400, fontSize: 12),
                   ),
                   

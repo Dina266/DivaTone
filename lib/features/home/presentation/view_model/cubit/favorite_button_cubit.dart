@@ -17,8 +17,8 @@ class FavoriteButtonCubit extends Cubit<FavoriteButtonState> {
       final currentState = state as FavoriteButtonUpdated;
 
       final newFavoriteStatus = !currentState.isFavorite;
-      emit(FavoriteButtonUpdated(isFavorite: newFavoriteStatus));
 
+      emit(FavoriteButtonUpdated(isFavorite: newFavoriteStatus));
       await SongsCubit().addOrRemoveFavoriteSong(songId: songId);
       
     }

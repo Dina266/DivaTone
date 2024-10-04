@@ -13,7 +13,13 @@ final class SongsNewsSuccess extends SongsState {
 }
 final class SongsPlayListSuccess extends SongsState {
   final List<SongEntity> songs;
+  final List<SongEntity> favSongs;
 
-  SongsPlayListSuccess({required this.songs});
+  SongsPlayListSuccess(this.favSongs, {required this.songs});
 }
 final class SongsFailure extends SongsState {}
+final class FavSongState extends SongsState {
+  final List<SongEntity> favSongs;
+
+  FavSongState({required this.favSongs});
+}
