@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, mode) => MaterialApp(
             title: 'DivaTone',
+            debugShowCheckedModeBanner: false,
             theme: AppTheme.darkTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: mode,

@@ -20,3 +20,6 @@ class AuthFailure extends AuthState {
 }
 
 class PasswordResetSuccess extends AuthState {}
+class AuthLoggedOutState extends AuthState {}
+class ChangeProfileSuccess extends AuthState {}
+

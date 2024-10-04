@@ -3,6 +3,8 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
+
+import '../../../../core/utils/app_images.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -75,6 +77,89 @@ class AuthCubit extends Cubit<AuthState> {
     } on FirebaseAuthException catch (e) {
       log("Error sending password reset email: ${e.message}");
       emit(AuthFailure(errorMessage: e.message ?? 'Password reset failed.'));
+    }
+  }
+
+  // Logout function
+  Future<void> logout() async {
+    try {
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      await auth.signOut();
+      log("User logged out");
+      emit(AuthLoggedOutState());
+    } catch (e) {
+      log("Error logging out: $e");
+      emit(AuthFailure(errorMessage: 'Logout failed.'));
+    }
+  }
+
+  // Change Display Name function
+  Future<void> changeDisplayName({required String newName}) async {
+    emit(AuthLoading());
+
+    try {
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      User? user = auth.currentUser;
+      if (user != null) {
+        await user.updateDisplayName(newName);
+        FirebaseFirestore.instance
+            .collection('Users')
+            .doc(user.uid)
+            .update({'name': newName});
+
+        log("Display name updated to: $newName");
+        emit(AuthSuccess(user: user));
+      } else {
+        emit(AuthFailure(errorMessage: 'No user found.'));
+      }
+    } catch (e) {
+      log("Error updating display name: $e");
+      emit(AuthFailure(errorMessage: 'Display name update failed.'));
+    }
+  }
+
+  // Change Password function
+  Future<void> changePassword({required String newPassword}) async {
+    emit(AuthLoading());
+
+    try {
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      User? user = auth.currentUser;
+      if (user != null) {
+        await user.updatePassword(newPassword);
+        log("Password updated");
+        emit(AuthSuccess(user: user));
+      } else {
+        emit(AuthFailure(errorMessage: 'No user found.'));
+      }
+    } catch (e) {
+      log("Error updating password: $e");
+      emit(AuthFailure(errorMessage: 'Password update failed.'));
+    }
+  }
+
+  // Change Profile Image function
+  Future<void> changeProfileImage({required String newImageUrl}) async {
+    emit(AuthLoading());
+
+    try {
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      User? user = auth.currentUser;
+      if (user != null) {
+        await user.updatePhotoURL(newImageUrl);
+        FirebaseFirestore.instance
+            .collection('Users')
+            .doc(user.uid)
+            .update({'imageUrl': newImageUrl});
+
+        log("Profile image updated");
+        emit(ChangeProfileSuccess());
+      } else {
+        emit(AuthFailure(errorMessage: 'No user found.'));
+      }
+    } catch (e) {
+      log("Error updating profile image: $e");
+      emit(AuthFailure(errorMessage: 'Profile image update failed.'));
     }
   }
 }
