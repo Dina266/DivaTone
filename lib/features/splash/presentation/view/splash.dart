@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/routes/routing.dart';
 import 'widgets/custom_splash_logo.dart';
@@ -13,7 +14,8 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    redirect();
+    // redirect();
+    handleNavigation();
   }
 
   @override
@@ -23,8 +25,17 @@ class _SplashViewState extends State<SplashView> {
     );
   }
 
-  Future<void> redirect() async {
+  // Future<void> redirect() async {
+  //   await Future.delayed(const Duration(seconds: 2));
+  //   Navigator.pushReplacementNamed(context, Routing.getStarted);
+  // }
+  
+  void handleNavigation() async{
     await Future.delayed(const Duration(seconds: 2));
-    Navigator.pushReplacementNamed(context, Routing.getStarted);
+    if (FirebaseAuth.instance.currentUser != null) {
+      Navigator.pushReplacementNamed(context , Routing.homeView);
+    }  else {
+      Navigator.pushReplacementNamed(context ,Routing.getStarted);
+    }
   }
 }

@@ -7,5 +7,6 @@ class Routing {
   static const String signInView = 'signInView';
   static const String homeView = 'HomeView';
   static const String songPlayer = 'songPlayer';
+  static const String profileView = 'profileView';
 
 }

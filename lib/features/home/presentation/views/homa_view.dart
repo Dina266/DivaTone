@@ -1,3 +1,5 @@
+import 'package:diva_tone/core/components/widgets/custom_app_bar.dart';
+import 'package:diva_tone/core/routes/routing.dart';
 import 'package:diva_tone/core/utils/app_images.dart';
 import 'package:diva_tone/features/home/presentation/views/widgets/news_songs.dart';
 import 'package:diva_tone/features/onboarding/presentation/view/widgets/custom_logo.dart';
@@ -23,7 +25,15 @@ class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          appBar: const CustomLogo(),
+          appBar: CustomAppBar(
+            title: const CustomLogo(),
+            actions: [
+              IconButton(
+                onPressed: () => Navigator.pushNamed(context, Routing.profileView),
+                icon: const Icon(Icons.person)
+                )
+            ],
+          ),
       body: SingleChildScrollView(
         child: Column(
           children: [
